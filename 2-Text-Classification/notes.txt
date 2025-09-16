@@ -1,0 +1,68 @@
+# row = some text or sentence
+#     = review
+#     = bag of words = vector of words or features
+#     = (phi_0:|V|)
+#     = [0, 1, 0, 1, ...] = each index is a word in the vocabulary represented by 1 or 0 indicating its presence or absence
+
+
+#####################################
+# BAYES RULE FOR TEXT CLASSIFICATION
+#####################################
+#### P(A|B) = P(B|A) * P(A)/P(B) ####
+#####################################
+
+''' NAIVE BAYES '''
+# POSTERIOR = LIKELIHOOD * PRIOR / EVIDENCE
+
+''' PROBABILITY TERMS '''
+# - POSTERIOR:  P(L+ | phi_0:|V|)   How likely is a + review given a word
+# - LIKELIHOOD: P(phi_0:|V| | L+)   How likely is the word given a + review
+# - PRIOR:      P(L+)               How likely is a + review
+# - EVIDENCE:   P(phi_0:|V|)        # How likely is the word in general
+''' NOTE: Ignore the evidence term because does not affect the classification.'''
+
+
+''' USING LOG PROBABILITIES'''
+# LOG_POSTERIOR = LOG_LIKELIHOOD + LOG_PRIOR
+
+# - LOG_LIKELIHOOD = log(P(phi_0:|V| | L+))
+#   P(phi_0:|V| | L+) = sum(log(P(phi_i | L+)))     for i = 0 to |V|
+#   P(phi_i | L+) = (# of + reviews with phi_i) / (# of + reviews)
+#   Smoothing: add 1 to the numerator and add |V| to the denominator
+
+# - LOG_PRIOR = log(P(L+))
+#   P(L+) = # of + reviews / total # of reviews
+
+''' Same as above but for negative label '''
+
+
+----------------------------------- IGNORE BELOW -----------------------------------
+
+
+#####################################
+# BAYES RULE FOR TEXT CLASSIFICATION
+#####################################
+#### P(A|B) = P(B|A) * P(A)/P(B) ####
+#####################################
+
+# Note:
+# - review = phis = phi_i           for i = 0 to |V| & phi_i is independent of each other
+# - alpha = 1/denominator           however may be safer to ignore alpha
+
+# P(label|review) = P(review|label) P(label) / P(review)
+# P(label|phis)   = P(phis|label) * P(label) / P(phis)
+#                 = mult(P(phi_i|label)) * P(label) / mult(P(phi_i))
+#                 = alpha * mult(P(phi_i|label)) * P(label)
+#                 = alpha * [sum(log P(phi_i|label)) + log P(label)]
+#                 = alpha * [log(P(B|A)) + log(P(A))]
+
+
+# PROBABILITY TERMS:
+# P(phi_i|label) = count reviews with feature i and given label / number of given label
+# P(label) = count reviews with given label/ total number of reviews
+# P(phi_i) = frequency of feature being present / total number of features
+
+# P(B|A) = P(phis|label) = mult(P(phi_i|label)) = sum(log P(phi_i|label))     for i=0 to |V|
+# P(A)   = P(label)
+# P(B)   = P(phis) = mult(P(phi_i)) = sum(log P(phi_i))                      for i=0 to |V|
+# alpha  = 1/P(B) = 1/P(phis) = 1/mult(P(phi_i)) = 1/sum(log P(phi_i))       for i=0 to |V|
