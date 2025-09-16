@@ -1,0 +1,32 @@
+{
+    "birth_date": [
+        "When was [NAME] born?",
+        "What is the birth date of [NAME]?",
+        "What is [NAME]'s date of birth?",
+        "Could you tell me [NAME]'s birthday?"
+    ],
+    "birth_place": [
+        "Where was [NAME] born?",
+        "What is the birthplace of [NAME]?",
+        "Can you tell me the place of birth for [NAME]?",
+        "In which location was [NAME] born?"
+    ],
+    "office": [
+        "What office did [NAME] hold?",
+        "Which position did [NAME] serve in?",
+        "What was [NAME]'s role in office?",
+        "What official position did [NAME] occupy?"
+    ],
+    "term_start": [
+        "When did [NAME] start their term?",
+        "What is the start date of [NAME]'s term?",
+        "When did [NAME] begin their office?",
+        "Could you tell me when [NAME]'s term began?"
+    ],
+    "term_end": [
+        "When did [NAME]'s term end?",
+        "What is the end date of [NAME]'s term?",
+        "When did [NAME] leave office?",
+        "Could you tell me when [NAME]'s term concluded?"
+    ]
+}
