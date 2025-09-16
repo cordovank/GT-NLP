@@ -1,0 +1,44 @@
+RNN model
+
+### NOTES: NN forward function
+
+Input -> [Linear] -> [Sigmoid] -> [Linear] -> [LogSoftmax] -> Output
+
+##### NOTE: Batch size is 1 because we are training on a single sequence of words at a time.
+
+**INPUT TENSORS**
+- X(batch_size, vocab_size) _one-hot vector_
+- HIDDEN(batch_size, hidden_size)
+- CONCAT(batch_size, vocab_size + hidden_size)
+
+
+Processing:
+- concatenate x + hidden_state = `1 x (vocab_size + hidden_size)` big long vector
+
+_The NN learns through weights from the one-hot (or certain parts of it) or the hidden state when trying to predict the next token._
+
+
+2 affine transformations (`nn.Linear` modules) + activation functions:
+1. transform tensor size: `1 x (vocab_size + hidden_size)` to `1 x hidden_size`
+2. sigmoid activation
+3. transform tensor size: `1 x hidden_size` to `1 x vocab_size`. Resultant tensor values = raw scores for each possible token in the vocabulary.
+4. run these scores through a log softmax.
+
+**OUTPUT TENSORS**
+- OUT(batch_size, vocab_size) _log-scale scores for each token_
+- HIDDEN(batch_size, hidden_size)
+
+
+Processing:
+detach hidden state from the computational graph before being returned (we don't want to backpropagate through the hidden state, but learn from the loss of the output token, not the hidden state.)
+- apply log softmax to output tensor.
+- apply to the last dimension of the output tensor.
+
+
+# GET BATCHES OF DATA
+_x = torch.tensor(x_data[start:end], dtype=torch.float)_
+_y = torch.tensor(y_data[start:end], dtype=torch.float)_
+
+# Flatten the input tensor to 2D
+   - 3D: (batch_size, size_1, size_2)
+   - 2D: (batch_size, size_1 * size_2)
