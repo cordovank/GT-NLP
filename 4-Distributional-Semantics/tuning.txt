@@ -1,0 +1,55 @@
+
+batch_size=128, num_epochs=2, lr=0.001
+Time: 67.75567317008972
+batch_size=128, num_epochs=2, lr=0.0005
+Time: 68.53837871551514
+batch_size=128, num_epochs=2, lr=0.0001
+Time: 68.70126104354858
+batch_size=128, num_epochs=5, lr=0.001
+Time: 163.27274107933044
+batch_size=128, num_epochs=5, lr=0.0005
+Time: 165.83824586868286
+batch_size=128, num_epochs=5, lr=0.0001
+Time: 161.273668050766
+batch_size=128, num_epochs=10, lr=0.001
+Time: 319.00022888183594
+batch_size=128, num_epochs=10, lr=0.0005
+Time: 321.08466601371765
+batch_size=128, num_epochs=10, lr=0.0001
+Time: 321.17380237579346
+batch_size=256, num_epochs=2, lr=0.001
+Time: 48.40528678894043
+batch_size=256, num_epochs=2, lr=0.0005
+Time: 48.31562900543213
+batch_size=256, num_epochs=2, lr=0.0001
+Time: 48.15690279006958
+batch_size=256, num_epochs=5, lr=0.001
+Time: 114.10225820541382
+batch_size=256, num_epochs=5, lr=0.0005
+Time: 113.13581085205078
+batch_size=256, num_epochs=5, lr=0.0001
+Time: 113.525630235672
+batch_size=256, num_epochs=10, lr=0.001
+Time: 221.22846508026123
+batch_size=256, num_epochs=10, lr=0.0005
+Time: 221.89730191230774
+batch_size=256, num_epochs=10, lr=0.0001
+Time: 221.2051682472229
+batch_size=1024, num_epochs=2, lr=0.001
+Time: 31.487951040267944
+batch_size=1024, num_epochs=2, lr=0.0005
+Time: 32.08009886741638
+batch_size=1024, num_epochs=2, lr=0.0001
+Time: 32.09392309188843
+batch_size=1024, num_epochs=5, lr=0.001
+Time: 72.06111907958984
+batch_size=1024, num_epochs=5, lr=0.0005
+Time: 71.77129888534546
+batch_size=1024, num_epochs=5, lr=0.0001
+Time: 73.27054119110107
+batch_size=1024, num_epochs=10, lr=0.001
+Time: 140.04979419708252
+batch_size=1024, num_epochs=10, lr=0.0005
+Time: 140.25957989692688
+batch_size=1024, num_epochs=10, lr=0.0001
+Time: 139.51235604286194
