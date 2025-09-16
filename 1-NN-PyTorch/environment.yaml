@@ -1,0 +1,17 @@
+# environment.yaml
+
+# Description: Conda environment file for the required libraries
+# Usage: conda env create -f environment.yaml
+#        conda env update -f environment.yaml
+
+name: nlp_hw1
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python==3.10
+  - anaconda
+  - pip
+  - pip:
+    - jupyterlab
+    - -r requirements.txt
